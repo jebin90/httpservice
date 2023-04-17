@@ -10,7 +10,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'docker build -t my-http-service .'
+                bat 'docker build -t my-http-service .'
             }
         }
         
