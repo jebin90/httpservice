@@ -7,6 +7,11 @@ import datetime
 import http.server
 import socketserver
 import re
+import signal
+
+def shutdown(server, signum, frame):
+    logging.info('Received signal %d, shutting down server...', signum)
+    server.shutdown()
 
 class MyHTTPHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -41,6 +46,7 @@ def run(port):
     with socketserver.TCPServer(("", port), MyHTTPHandler) as httpd:
         logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
         logging.info('Starting server on port %d...', port)
+        signal.signal(signal.SIGTERM, lambda signum, frame: shutdown(httpd, signum, frame))
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
