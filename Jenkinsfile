@@ -4,8 +4,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'pip install pytest'
-                sh 'python -m pytest'
+                sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate'
+                sh 'pip3 install pytest'
+                sh 'start /B python3 -m pytest'
             }
         }
         
