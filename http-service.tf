@@ -1,4 +1,8 @@
 # Use the latest version of the Kubernetes provider
+variable "config_file_path" {
+  default = "C:/Users/User/.kube/config"
+}
+
 terraform {
   required_providers {
     kubernetes = {
@@ -11,7 +15,7 @@ terraform {
 # Configure the Kubernetes provider with the Minikube context
 provider "kubernetes" {
     config_context_auth_info = "minikube"
-    config_path = "c/Users/User/.kube/config"
+    config_path = var.config_file_path
     config_context = "minikube"
 }
 
