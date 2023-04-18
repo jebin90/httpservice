@@ -42,14 +42,6 @@ resource "kubernetes_deployment" "http_service" {
           ports {
             container_port = 8080
           }
-          env {
-            name  = "GIT_HASH"
-            value = "${var.git_hash}"
-          }
-          env {
-            name  = "GIT_NAME"
-            value = "${var.git_name}"
-          }
         }
       }
     }
@@ -84,13 +76,4 @@ output "service_url" {
 # Get the Minikube IP address
 data "external" "minikube" {
   program = ["minikube", "ip"]
-}
-
-# Define the input variables
-variable "git_hash" {
-  description = "The Git hash of the application"
-}
-
-variable "git_name" {
-  description = "The Git name of the application"
 }
