@@ -3,7 +3,7 @@ terraform {
   required_providers {
     kubernetes = {
       source = "hashicorp/kubernetes"
-      version = ">= 2.0.0"
+      version = "2.11.0"
     }
   }
 }
@@ -11,7 +11,8 @@ terraform {
 # Configure the Kubernetes provider with the Minikube context
 provider "kubernetes" {
     config_context_auth_info = "minikube"
-    config_context_cluster = "minikube"
+    config_path = "C:\Users\User\.kube\config"
+    config_context = "minikube"
 }
 
 # Deploy the application with a Kubernetes Deployment
