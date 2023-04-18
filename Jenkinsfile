@@ -26,6 +26,7 @@ pipeline {
         stage('Deploy with Terraform') {
             steps {
                 bat '''
+                    docker login
                     terraform init
                     terraform apply -auto-approve
                     '''
