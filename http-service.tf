@@ -44,7 +44,7 @@ resource "kubernetes_deployment" "http_service" {
       spec {
         container {
           name  = "http-service"
-          image = "jebin90/http-service:latest"
+          image = "jebin90/my-http-service:latest"
           port {
             container_port = 8080
           }
