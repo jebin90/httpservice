@@ -69,11 +69,11 @@ resource "kubernetes_service" "http_service" {
 }
 
 # Output the Service URL
-output "service_url" {
-  value = "http://${minikube_ip}:${kubernetes_service.http_service.spec.ports.0.node_port}"
-}
+#output "service_url" {
+#  value = "http://${minikube_ip}:${kubernetes_service.http_service.spec.ports.0.node_port}"
+#}
 
 # Get the Minikube IP address
-data "external" "minikube" {
-  program = ["minikube", "ip"]
-}
+#data "external" "minikube" {
+#  program = ["minikube", "ip"]
+#}
