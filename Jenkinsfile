@@ -23,11 +23,13 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Minikube') {
+        stage('Deploy with Terraform') {
             steps {
-                bat 'minikube start'
-                bat 'kubectl apply -f deployment.yaml'
-    }
+                bat '''
+                    terraform init
+                    terraform apply -auto-approve
+                    '''
+  }
 }
     }
 }
