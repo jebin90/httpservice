@@ -11,7 +11,7 @@ terraform {
 # Configure the Kubernetes provider with the Minikube context
 provider "kubernetes" {
     config_context_auth_info = "minikube"
-    config_path = "C:\Users\User\.kube\config"
+    config_path = "c/Users/User/.kube/config"
     config_context = "minikube"
 }
 
