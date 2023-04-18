@@ -10,7 +10,8 @@ terraform {
 
 # Configure the Kubernetes provider with the Minikube context
 provider "kubernetes" {
-  config_context_cluster = "minikube"
+    config_context_auth_info = "minikube"
+    config_context_cluster = "minikube"
 }
 
 # Deploy the application with a Kubernetes Deployment
